@@ -1,12 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { createElement, renderDom } from './vdom'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+let dom = createElement('ul', {class: 'wrapper', style: { width: '100px', height: '100px' }}, [createElement('li', {class: 'li'}, [createElement('input', {class: 'input', placeholder: 'hello world'})])])
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+console.log(dom)
+
+renderDom(dom, document.getElementById('root'))
